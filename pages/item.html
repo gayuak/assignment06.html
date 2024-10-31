@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POS System - Items</title>
+    <link rel="icon" href="/assets/images/POS-logo.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/assets/css/pos-system.css" />
+    <style>
+      body {
+        background-color: white; 
+      }
+
+      .navbar,
+      footer {
+        background-color: white; 
+        color: #f5f5dc; 
+      }
+
+      .navbar .navbar-brand,
+      .navbar .nav-link {
+        color: black !important; 
+      }
+      #delete{
+        background-color: rgb(245, 10, 10);
+      }
+
+      
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-light border-bottom border-success border-3 rounded-3 mb-4"
+      >
+        <div class="container-fluid">
+          <a
+            class="navbar-brand fw-bold border-2 border-end border-success pe-3"
+            href="#"
+          >
+          <i class="fa-solid fa-store"></i>
+          Gayumi-POS System
+          </a>
+          <button
+            class="navbar-toggler border-2 border-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto w-100 ms-md-3">
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="/index.html"
+                  ><i class="bi bi-house"></i> Customers</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="/pages/orders.html"
+                  ><i class="bi bi-cart"></i> Orders</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active fw-semibold" href="#"
+                  ><i class="bi bi-box"></i> Items</a
+                >
+              </li>
+              <li class="nav-item ms-md-auto">
+                <div class="d-flex w-100 justify-content-center">
+                  <button class="btn fw-medium text-dark">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Sign Up
+                  </button>
+                  <button class="btn fw-medium text-dark">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Log Out
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="row label p-2 m-auto">
+          <div class="col-md-12">
+            <h1 class="fw-medium text-start my-auto">
+              <i class="fa-solid fa-cubes"></i>
+              Items
+            </h1>
+          </div>
+        </div>
+        <div class="row content p-1 m-auto">
+          <div class="col-md-12 p-3">
+            <div class="row m-auto">
+              <div class="col-md-6">
+                <h2
+                  class="fw-normal fs-5 ps-3 p-2 m-0 w-100 bg-success text-light"
+                >
+                  Item Search
+                </h2>
+                <div class="search bg-light p-3">
+                  <form class="px-2" action="search">
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control border-1 border-dark-subtle rounded-1 my-3"
+                        placeholder="Input Name/Code Here"
+                        required
+                      />
+                      <div class="d-flex">
+                        <button class="btn btn-success px-3 rounded-1">
+                          Search
+                        </button>
+                        <select
+                          class="form-select ms-2 w-auto border-1 border-dark-subtle rounded-1"
+                        >
+                          <option>Name</option>
+                          <option>Code</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                class="col-md-6 pt-3 pt-md-0 d-flex justify-content-md-end justify-content-center"
+              >
+                <div class="w-75">
+                  <button type="button" class="btn btn-success px-4 w-100">
+                    New Items
+                  </button>
+                  <br><br>
+                  <button type="button" class="btn btn-success px-4 w-100">
+                    View All Items
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row button-set m-auto">
+              <div class="col-12 px-3">
+                <div
+                  class="p-md-3 py-3 d-flex justify-content-md-start justify-content-center gap-1"
+                >
+                  <button id="delete" class="btn btn-danger px-4 rounded-1">Delete</button>
+                  <button
+                    class="btn btn-primary text-white px-4 rounded-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateItemModal"
+                  >
+                    Update
+                  </button>
+                  <button class="btn btn-secondary text-white px-4 rounded-1">
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-content m-auto">
+              <div class="col-12">
+                <div class="table-responsive text-center">
+                   <table class="table bg-light table-responsive-md table-bordered table-secondary ">
+                    <thead>
+                    <tr class="bg-secondary">
+                        <th> Item Code</th>
+                        <th>Item Name</th>
+                        <th>Item Unit Price</th>
+                        <th> Item Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody id="itemTableBody">
+                    <tr >
+                        <td>Item 1</td>
+                        <td>Sample Item</td>
+                        <td></i> 10.99</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Item 2</td>
+                        <td>Another Item</td>
+                        <td>8.50</td>
+                        <td>2</td>
+                    </tr>
+    
+                    </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-center text-white bg-dark p-3 mt-4">
+      <p class="mb-0">© 2024 POS System. All Rights Reserved.</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
